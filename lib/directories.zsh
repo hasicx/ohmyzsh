@@ -34,5 +34,31 @@ compdef _dirs d
 # List directory contents
 alias lsa='ls -lah'
 alias l='ls -lah'
-alias ll='ls -lh'
-alias la='ls -lAh'
+# alias ll='ls -lh'
+# alias la='ls -lAh'
+
+### Custom
+
+cdpath=(
+  ~
+  ~/projects
+)
+
+# Custom: List directory (ls) variations
+alias ll='ls -lhG -F' 		# long
+alias la='ls -A -F'		# all
+alias lla='ls -lhG -A -F' 	# long+all
+
+alias lg.='ls -d -F .*'			# glob: hidden only
+alias lg/='ls -d -F *(-/DN)'		# glob: (symlink to) dirs only - possible dep @ dot_glob
+alias lgl.='ls -lhG -d -F .*'		# glob: long + hidden only
+alias lgl/='ls -lhG -d -F *(-/DN)' 	# glob: long + (symlink to) dirs only
+
+alias l='lla'
+
+# Custom: shell config file path aliases
+alias -g zshrc="$HOME/.zshrc"
+alias -g omzdir="$HOME/.oh-my-zsh"
+alias -g omzscript="$HOME/.oh-my-zsh/oh-my-zsh.sh"
+alias -g omzlib="$HOME/.oh-my-zsh/lib"
+alias -g i3config="$HOME/.config/i3/config"

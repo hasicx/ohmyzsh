@@ -15,8 +15,8 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
   zle -N zle-line-finish
 fi
 
-# Use emacs key bindings
-bindkey -e
+# Use emacs (-e) or vi (-v) keymap in zsh line editor
+bindkey -v
 
 # [PageUp] - Up a line of history
 if [[ -n "${terminfo[kpp]}" ]]; then
@@ -114,6 +114,7 @@ bindkey ' ' magic-space                               # [Space] - don't do histo
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
+# bindkey 'vv' edit-command-line
 
 # file rename magick
 bindkey "^[m" copy-prev-shell-word

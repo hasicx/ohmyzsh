@@ -18,8 +18,12 @@ fi
 ## jobs
 setopt long_list_jobs
 
-env_default 'PAGER' 'less'
-env_default 'LESS' '-R'
+#env_default 'PAGER' 'less'
+#env_default 'LESS' '-R'
+# Custom: load environment variables
+if [[ -r "$HOME/.localenv" ]]; then
+  source "$HOME/.localenv"
+fi
 
 ## super user alias
 alias _='sudo '
